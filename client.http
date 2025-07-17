@@ -32,10 +32,9 @@ GET {{baseUrl}}/rooms/{{roomId}}/questions
 ###
 #Create Question
 # @name createQuestion
-POST {{baseUrl}}/rooms/{{roomId}}/questions
-Accept: application/json
+POST {{baseUrl}}/rooms/5cd857a3-28f9-4f9c-abf9-4702fcc00506/questions
 Content-Type: application/json
 
 {
-    "question": "New question"
+    "question": "Oque é pescaria?"
 }
