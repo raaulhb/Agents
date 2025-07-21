@@ -1,0 +1,40 @@
+@baseUrl = http://localhost:3333
+
+#Health check
+#@name healthCheck
+GET {{baseUrl}}/health
+###
+#Get rooms
+# @name getRooms
+GET {{baseUrl}}/rooms
+
+###
+#Create Room
+# @name createRoom
+POST {{baseUrl}}/rooms
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name": "New Room",
+    "description": "This is a new room created via API."
+}
+
+###
+@roomId = {{createRoom.response.body.$.roomId}}
+
+###
+
+#Get Room questions
+# @name getRoomQuestions
+GET {{baseUrl}}/rooms/{{roomId}}/questions
+
+###
+#Create Question
+# @name createQuestion
+POST {{baseUrl}}/rooms/5cd857a3-28f9-4f9c-abf9-4702fcc00506/questions
+Content-Type: application/json
+
+{
+    "question": "Oque é pescaria?"
+}
